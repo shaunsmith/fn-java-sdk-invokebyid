@@ -77,8 +77,8 @@ Maven repository:
     service calls. There are a few ways to authenticate. This example uses an
     `ConfigFileAuthenticationDetailsProvider`, which reads user properties from
     the OCI config file located in `~/.oci/config`. This class can be instructed
-    to read an optionally specified user profile.  But oßut of the box, the
-    example uses the default profile.
+    to read an optionally specified user profile.  But out of the box, the
+    example uses the DEFAULT profile.
 
     If you've already set up the Fn CLI to use Oracle Functions, as described in
     the *Oracle Functions Getting Started* guide, then you will have already
@@ -100,6 +100,9 @@ Maven repository:
    > NOTE: `pass_phrase` is only required if your private key has a passphrase
 
 ## You can now invoke your function!
+
+The Maven build results in a jar in the target folder.  The syntax to run the
+example is:
 
 `java -jar target/<jar-name>.jar <invoke endpoint> <functionid> [<payload string>]`
 
