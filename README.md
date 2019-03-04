@@ -103,16 +103,40 @@ Maven repository:
 
 `java -jar target/<jar-name>.jar <invoke endpoint> <functionid> [<payload string>]`
 
+To find the Orace Functions invoke endpoint for your function, inspect the
+function you want to invoke using the Fn CLI, e.g.,: `fn inspect sdktest
+helloj`. The result will be a JSON structure similar to the following:
+
+```JSON
+{
+	"annotations": {
+		"fnproject.io/fn/invokeEndpoint": "https://toyh4yqssuq.us-phoenix-1.functions.oci.oraclecloud.com/invoke/ocid1.fnfunc.oc1.phx.abcdefghijk",
+		"oracle.com/oci/compartmentId": "ocid1.compartment.oc1..abcdefg"
+	},
+	"app_id": "ocid1.fnapp.oc1.phx.abcdfg",
+	"created_at": "2019-02-26T21:28:04.866Z",
+	"id": "ocid1.fnfunc.oc1.phx.abcdefghijk",
+	"idle_timeout": 30,
+	"image": "phx.ocir.io/oracle-serverless-devrel/shaunsmith/helloj:0.0.4",
+	"memory": 128,
+	"name": "helloj",
+	"timeout": 30,
+	"updated_at": "2019-02-26T21:28:04.866Z"
+}
+```
+
+The invoke endpoint you need to pass to the example can be extracted from the value of the `fnproject.io/fn/invokeEndpoint` property.  You just need the protcol and name of the host.  For the example above that would be: `https://toyh4yqssuq.us-phoenix-1.functions.oci.oraclecloud.com`.  The `id` property contains the function id.
+
 > NOTE: Payload is optional. If your function doesn't expect any input you
 > can omit it.
 
 e.g., without payload:
 
-`java -jar target/fn-java-sdk-invokebyid-1.0-SNAPSHOT.jar function-id function-endpoint`
+`java -jar target/fn-java-sdk-invokebyid-1.0-SNAPSHOT.jar https://toyh4yqssuq.us-phoenix-1.functions.oci.oraclecloud.com ocid1.fnfunc.oc1.phx.abcdefghijk`
 
 e.g., with payload:
 
-`java -jar target/fn-java-sdk-invokebyid-1.0-SNAPSHOT.jar function-id function-endpoint '{"name":"foobar"}'`
+`java -jar target/fn-java-sdk-invokebyid-1.0-SNAPSHOT.jar https://toyh4yqssuq.us-phoenix-1.functions.oci.oraclecloud.com ocid1.fnfunc.oc1.phx.abcdefghijk '{"name":"foobar"}'`
 
 ## What if my function needs input in binary form?
 
