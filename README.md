@@ -20,7 +20,7 @@ The set of required steps are:
 
 1. Authenticate with OCI (more on this below)
 2. Create a `FunctionsInvokeClient` with the auth credentials
-3. Set the `invokeEndpoint` of the client to the URL of the Oracle Functions service in your region
+3. Set the `invokeEndpoint` of the client to the invoke endpoint URL of your function
 3. Create an `InvokeFunctionRequest` with the function id
 4. Pass the `InvokeFunctionRequest` to the `FunctionsInvokeClient`to call the function
 5. Extract the result from an `InvokeFunctionResponse`
