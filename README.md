@@ -28,15 +28,19 @@ The set of required steps are:
 
 ## Pre-requisites
 
-1. Install/update the Fn CLI
+1. Clone this repository
+
+   `git clone https://github.com/shaunsmith/fn-java-sdk-invokebyid`
+
+2. Install/update the Fn CLI
 
    `curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install |
    sh`
 
-2. Create a function to invoke
+3. Create a function to invoke
 
-   Create a function using [Go Hello World
-   Function](https://github.com/abhirockzz/oracle-functions-hello-worlds/blob/master/golang-hello-world.md)
+   Create a function using [Java Hello World
+   Function](https://github.com/abhirockzz/oracle-functions-hello-worlds/blob/master/java-hello-world.md)
 
 ## Install preview OCI Java SDK
 
@@ -47,31 +51,26 @@ Maven repository:
 
    `unzip oci-java-sdk-dist-1.4.1-preview1-20190222.223049-5.zip`
 
-2. Change into the correct directory
+2. Change into the clone repo root folder that contains the `pom.xml`
 
-   `cd oci-java-sdk-dist-1.4.1-preview1-20190222.223049-5`
+   `cd fn-java-sdk-invokebyid`
 
 3. Install the JAR to local Maven repo
 
-   `mvn install:install-file -Dfile=lib/oci-java-sdk-full-1.4.1-preview1-SNAPSHOT.jar
-   -DgroupId=com.oracle.oci.sdk -DartifactId=oci-java-sdk \
+   Run the following command substituting in the path to the the folder where
+   you unzipped the downloaded SDK:
+
+   `mvn install:install-file -Dfile=<SDK DOWNLOAD FOLDER>/lib/oci-java-sdk-full-1.4.1-preview1-SNAPSHOT.jar
+   -DgroupId=com.oracle.oci.sdk -DartifactId=oci-java-sdk
    -Dversion=1.4.1-preview1-20190222.223049-5 -Dpackaging=jar`
 
 ## Build the JAR and configure your environment
 
-1. Clone this repository
-
-   `git clone https://github.com/shaunsmith/fn-java-sdk-invokebyid`
-
-2. Cd into the directory where you cloned the example: 
-
-   `cd fn-java-sdk-invokebyid`
-
-3. Then build the JAR:
+1. Then build the client JAR:
 
    `mvn clean package`
 
-4. Define OCI authentication properties
+2. Define OCI authentication properties
 
     Functions clients need to authenticate with OCI before being able to make
     service calls. There are a few ways to authenticate. This example uses an
@@ -107,8 +106,11 @@ example is:
 `java -jar target/<jar-name>.jar <invoke endpoint> <functionid> [<payload string>]`
 
 To find the Orace Functions invoke endpoint for your function, inspect the
-function you want to invoke using the Fn CLI, e.g.,: `fn inspect sdktest
-helloj`. The result will be a JSON structure similar to the following:
+function you want to invoke using the Fn CLI, e.g.,:
+
+`fn inspect func helloworld-app helloworld-func-java`
+
+The result will be a JSON structure similar to the following:
 
 ```JSON
 {
@@ -120,9 +122,9 @@ helloj`. The result will be a JSON structure similar to the following:
 	"created_at": "2019-02-26T21:28:04.866Z",
 	"id": "ocid1.fnfunc.oc1.phx.abcdefghijk",
 	"idle_timeout": 30,
-	"image": "phx.ocir.io/oracle-serverless-devrel/shaunsmith/helloj:0.0.4",
+	"image": "phx.ocir.io/oracle-serverless-devrel/shaunsmith/helloworld-func-java:0.0.4",
 	"memory": 128,
-	"name": "helloj",
+	"name": "helloworld-func-java",
 	"timeout": 30,
 	"updated_at": "2019-02-26T21:28:04.866Z"
 }
