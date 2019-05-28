@@ -49,7 +49,7 @@ Maven repository:
 
 1. Download and unzip the preview version of the OCI Java SDK
 
-   `unzip oci-java-sdk-dist-1.4.1-preview1-20190222.223049-5.zip`
+   `unzip oci-java-sdk-dist-1.5.7-preview1-20190524.232748-4.zip`
 
 2. Change into the clone repo root folder that contains the `pom.xml`
 
@@ -60,15 +60,18 @@ Maven repository:
    Run the following command substituting in the path to the the folder where
    you unzipped the downloaded SDK:
 
-   `mvn install:install-file -Dfile=<SDK DOWNLOAD FOLDER>/lib/oci-java-sdk-full-1.4.1-preview1-SNAPSHOT.jar
+   `mvn install:install-file -Dfile=<SDK DOWNLOAD FOLDER>/lib/oci-java-sdk-full-1.5.7-preview1-SNAPSHOT.jar
    -DgroupId=com.oracle.oci.sdk -DartifactId=oci-java-sdk
-   -Dversion=1.4.1-preview1-20190222.223049-5 -Dpackaging=jar`
+   -Dversion=1.5.7-preview1 -Dpackaging=jar`
 
 ## Build the JAR and configure your environment
 
 1. Then build the client JAR:
 
    `mvn clean package`
+
+  NOTE: You must update the `pom.xml` properties if you're using a version
+  other than "1.5.7-preview1".
 
 2. Define OCI authentication properties
 

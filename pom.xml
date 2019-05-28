@@ -9,13 +9,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <oci.java.sdk.version>1.5.7-preview1</oci.java.sdk.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.oracle.oci.sdk</groupId>
             <artifactId>oci-java-sdk</artifactId>
-            <version>1.4.1-preview1-SNAPSHOT</version>
+            <version>${oci.java.sdk.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
