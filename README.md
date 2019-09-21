@@ -121,7 +121,6 @@ The result will be a JSON structure similar to the following:
 	"timeout": 30,
 	"updated_at": "2019-09-20T08:14:44.973Z"
 }
-
 ```
 
 The invoke endpoint you need to pass to the example can be extracted from the 
