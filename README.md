@@ -12,7 +12,7 @@ The OCI Java SDK exposes two endpoints specificially for Oracle Functions:
 The SDK also provides a number of utility classes for building function
 invocation requests and handling request results.
 
-In this example, we'll invoke a existing function by it's id so we will only 
+In this example, we'll invoke an existing function by it's id so we will only 
 need the FunctionsInvokeClient. The key method we're going to use is the
 suitably named `invokeFunction`, which takes an `InvokeFunctionRequest`.
 
@@ -33,7 +33,7 @@ function
 1. Clone this repository
 
    >```
-   >git clone https://github.com/shaunsmith/fn-java-sdk-invokebyid
+   >git clone https://github.com/sachin-pikle/fn-java-sdk-invokebyid.git
    >```
 
 2. Install/update the Fn CLI
@@ -56,7 +56,7 @@ function
    >```
 
    NOTE: You must update the `pom.xml` properties if you're using a version
-   other than "1.8.0".
+   of OCI Java SDK other than "1.8.0".
 
 2. Define OCI authentication properties
 
@@ -92,7 +92,7 @@ function
 The Maven build produces a jar in the target folder. The syntax to run the
 example is:
 
->`java -jar target/<jar-name>.jar <oci-profile> <function-invoke-endpoint
+>`java -jar target/<jar-name>.jar <oci-profile> <function-invoke-endpoint>
 > <function-id> [<optional-payload-string>]`
 
 To find the invoke endpoint for your function, inspect the function you want
