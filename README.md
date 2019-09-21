@@ -33,7 +33,7 @@ function
 1. Clone this repository
 
    >```
-   >git clone https://github.com/sachin-pikle/fn-java-sdk-invokebyid.git
+   >git clone https://github.com/<github-user-name>/fn-java-sdk-invokebyid.git
    >```
 
 2. Install/update the Fn CLI
